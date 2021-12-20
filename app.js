@@ -1,8 +1,10 @@
 const express = require('express');
+const axios = require('axios');
 const path = require('path');
 var genuuid = require('uuid').v4;
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const Product = require('./server/models/product');
 
 const app = express();
 
@@ -40,6 +42,35 @@ db.connect({
     app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
     });
+
+
+    // axios('https://fakestoreapi.com/products')
+    // .then(response=>{
+    //     //console.log(response.data)
+    //         for(let i=0;i<response.data.length;i++) {
+    //         const product = new Product({
+    //             _id: response.data[i].id,
+    //             title: response.data[i].title,
+    //             price: Math.round(response.data[i].price * 76),
+    //             quantity: 1000,
+    //             description: response.data[i].description,
+    //             category: response.data[i].category,
+    //             image: response.data[i].image,
+    //             rating: response.data[i].rating,
+    //           });
+              
+              
+              
+    //           product.save()
+    //           .then(savedDoc => {
+    //               console.log(`Saved with id: ${savedDoc.id}`);
+    //           }, err => {
+    //               console.log(`Error in saving product ${err}`);
+    //           });
+    
+    //     }
+        
+    // });
 
     //Start listening on port
     app.listen(port, () => {
