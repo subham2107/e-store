@@ -5,19 +5,24 @@ const bcrypt = require('bcryptjs');
 
 router.post('/', (req, res) => {
     if (!req.body) {
-        res.status(400).send({error: "Email and Password not present in request"});
+        res.status(400).send({error: "Please enter details"});
         return;
     }
 
-    const { email, password } = req.body;
+    const { email, userName, password } = req.body;
 
     if (!email) {
-        res.status(400).send({error: "Email not present in request"});
+        res.status(400).send({error: "Please enter email"});
+        return;
+    }
+
+    if (!userName) {
+        res.status(400).send({error: "Please enter username"});
         return;
     }
 
     if (!password) {
-        res.status(400).send({error: "Password not present in request"});
+        res.status(400).send({error: "Please enter password"});
         return;
     }
 

@@ -1,0 +1,108 @@
+.form-login-btn {
+    background-color: #578ef5;
+    color: #fff;
+    font-size: 16px;
+    line-height: 2; 
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-width: 70px;
+    max-width: 70px; 
+    
+    
+}
+.form-submit-btn {
+    background-color: #123f91;
+    color: #fff;
+    font-size: 16px;
+    line-height: 2; 
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    min-width: 70px;
+    max-width: 70px; 
+    margin-left: 10px;
+    
+}
+
+.form-submit-btn:active {
+  background-color: #578ef5;
+}
+
+.form-login-btn:active {
+  background-color: #123f91;
+}
+
+.loginHeader {
+    text-align: center;
+    font-size: 15px;
+}
+.loginError {
+    text-align: center;
+}
+.error-span{
+  color: red;
+}
+
+.star {
+  color: red;
+}
+
+.emailId-label {
+  margin-right: 143px;
+}
+.userName-label {
+  margin-right: 128px;
+}
+.password-label {
+  margin-right: 130px;
+}
+.form-data {
+  text-align: center;
+}
+
+.signInHeader{
+  text-align: center;
+}
+
+.emailId-input {
+  width: 200px;
+  padding: 6px;
+}
+
+.name-input {
+  width: 200px;
+  /* margin-bottom: 5px;
+  margin-top: 5px; */
+  padding: 6px;
+
+}
+
+.password-input {
+  width: 200px;
+  /* margin-bottom: 5px;
+  margin-top: 5px; */
+  padding: 6px;
+}
+
+
+.loginPage {
+    position: absolute;
+    width: 300px;
+    height: 350px;
+  
+    /* Center form on page horizontally & vertically */
+    /* top: 50%;
+    left: 50%;
+    margin-top: -155px;
+    margin-left: -155px; */
+    border: solid 1px;
+    border-radius: 20px;
+
+}

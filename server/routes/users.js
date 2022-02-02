@@ -7,19 +7,24 @@ const bcrypt = require('bcryptjs');
 
 router.post('/', (req, res) => {
     if (!req.body) {
-        res.status(400).send({error: "Email and Password not present in request"});
+        res.status(400).send({error: "Please enter details"});
         return;
     }
 
-    const { email, password } = req.body;
+    const { email, userName, password } = req.body;
 
     if (!email) {
-        res.status(400).send({error: "Email not present in request"});
+        res.status(400).send({error: "Please enter email"});
+        return;
+    }
+
+    if (!userName) {
+        res.status(400).send({error: "Please enter username"});
         return;
     }
 
     if (!password) {
-        res.status(400).send({error: "Password not present in request"});
+        res.status(400).send({error: "Please enter password"});
         return;
     }
 
@@ -34,7 +39,7 @@ router.post('/', (req, res) => {
         const userCredential = new UserCredential({ email, password: hash });
 
         userCredential.save().then(() => {
-            const user = new User({ _id: userCredential.id, email });
+            const user = new User({ _id: userCredential.id, email, userName });
             user.save().then(() => {
                 res.status(201).send({ id: userCredential.id });
             });
@@ -60,22 +65,22 @@ router.get('/:userId', (req, res) => {
     });
 });
 
-router.put('/me', auth.authenticate, (req, res) => {
-    if (!req.session.userId) {
-        res.send(401).send({ error: "Not logged in"});
-    }
+// router.put('/me', auth.authenticate, (req, res) => {
+//     if (!req.session.userId) {
+//         res.send(401).send({ error: "Not logged in"});
+//     }
 
-    const { firstName, lastName } = req.body;
+//     const { firstName, lastName } = req.body;
 
-    const updateQuery = {};
-    (firstName !== undefined) && (updateQuery.firstName = firstName);
-    (lastName !== undefined) && (updateQuery.lastName = lastName);
+//     const updateQuery = {};
+//     (firstName !== undefined) && (updateQuery.firstName = firstName);
+//     (lastName !== undefined) && (updateQuery.lastName = lastName);
 
-    User.updateOne({ _id: req.session.userId }, updateQuery).then(() => {
-        res.status(204).send();
-    }).catch(() => {
-        res.status(500).send({ error: "Internal Server Error" });
-    });
-});
+//     User.updateOne({ _id: req.session.userId }, updateQuery).then(() => {
+//         res.status(204).send();
+//     }).catch(() => {
+//         res.status(500).send({ error: "Internal Server Error" });
+//     });
+// });
 
 module.exports = router;
