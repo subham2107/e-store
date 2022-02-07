@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 105vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,14 +14,12 @@
     min-width: 350px;
     max-width: 350px;
     background-color:white;
-    color: black;
     z-index: 1;
     border-radius: 8px;
     box-shadow: 0 6px 12px -2px rgb(50 50 93 / 25%), 0 3px 7px -3px rgb(0 0 0 / 30%);
   }
   .popup-inner .close-button{
     position: relative;
-    color: black;
     z-index: 1;
   }
 
@@ -39,14 +37,27 @@
     align-items: center;
     
   }
+
+  .horizontalPopupLine {
+    width: 89%;
+  }
   
   .close-button {
     cursor: pointer;
-    background-color: rgb(211, 21, 21);
+    /* background-color: rgb(211, 21, 21); */
     height: 30px;
     width: 30px;
     border: none;
-    border-radius: 50%;
+    border-radius: 5px;
     margin-left: 220px;
     
+  }
+
+  .X {
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .close-button:active {
+    background-color: #c51717;
   }

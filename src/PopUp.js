@@ -16,9 +16,9 @@ render() {
             <div className="popup-inner">
                 <div className = "popupLogo">
                 <div className="companyLogo1"><b className="logoY">E</b><b>-Store</b></div>
-                <button className="close-button" onClick={this.handleClick}><b>X</b></button>
+                <button className="close-button" onClick={this.handleClick}><label className = "X">X</label></button>
                 </div>
-                <hr></hr>
+                <hr className = "horizontalPopupLine"></hr>
                 <LoginPage />          
             </div>
         </div>

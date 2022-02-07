@@ -13,13 +13,17 @@ class NavBar extends React.Component{
       password: '',
       isSignedUp: false,
       isPopUp: false,
+      userName: ''
     };
 }
 
 componentDidMount() {
-  fetch('/api/users/me').then(user => {
-    if (user.status === 200) {
-      this.setState({isSignedUp: true});
+  fetch('/api/users/me')
+  .then(response => response.json())
+  .then(user => {
+    if (user) {
+      console.log(user)
+      this.setState({isSignedUp: true, userName: user.userName});
       console.log('hi');
     }
     else {
@@ -61,18 +65,26 @@ render() {
   let logininfo;
   
   if(this.state.isSignedUp) {
-    logininfo=<div onClick={this.onLogout}>Logout</div>
+    logininfo=
+    <div className="dropdown-nav" ><span>{this.state.userName}<img className = "dropdown-arrow" alt="img" src = "images/down-arrow.svg"></img></span>
+    <div className="dropdown-content">
+      <span className = "box" >My orders</span>
+      <span className = "box" onClick={this.onLogout}>Logout</span>
+    </div>
+  </div>
   }
   else{
-    logininfo=<div onClick={this.togglePopUp}>Login/Signup</div>
+    logininfo=<div onClick={this.togglePopUp}>Login</div>
   }
 
   return (
 <header className="navbar">
    <Link to='/'><div className="companyLogo"><b className="logoY">E</b>-Store</div></Link>
    {this.props.displaySearch? <div></div>:<SearchBar searchProductResult={this.searchProductResult}/>}
+   <img className = "cart-icon" src = "images/shopping_cart.png" alt = "img"></img>
    <span className="login-signup">{logininfo}</span>
    {this.state.isPopUp?<PopUp togglePopUp={this.togglePopUp}/>:null}
+   
 </header>
 
 

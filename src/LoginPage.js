@@ -13,13 +13,13 @@ class LoginPage extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch('/api/users/me').then(user => {
-      if (user.status === 200) {
-        window.location = '/profile';
-      }
-    });
-  }
+  // componentDidMount() {
+  //   fetch('/api/users/me').then(user => {
+  //     if (user.status === 200) {
+  //       window.location = '/profile';
+  //     }
+  //   });
+  // }
 
   onInput = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -35,6 +35,9 @@ class LoginPage extends React.Component {
         'Content-type': 'application/json; charset=UTF-8'
       }
     }).then(res => {
+    if (res.ok) {
+      window.location.reload();
+    }
     
     return res.json().then((body) => {
         throw new Error(body.error)
@@ -85,17 +88,17 @@ class LoginPage extends React.Component {
         <div >
           <div>
           <label className='emailId-label'>Email-Id <span className = 'star'>*</span></label>
-          <br></br>
+          
           <input className='emailId-input' placeholder="Enter Email-Id" name="email" required type="email" onInput={this.onInput} value={this.state.email}></input>
         </div>
         <div>
           <label className='userName-label'>Username <span className = 'star'>*</span></label>
-          <br></br>
+          
           <input className='name-input' placeholder="Enter Username" name="userName" required type="text" onInput={this.onInput} value={this.state.userName}></input>
         </div>
         <div>
         <label className='password-label'>Password <span className = 'star'>*</span></label>
-          <br></br>
+          
           <input className='password-input' placeholder="Enter Password" name="password" required type="password" onInput={this.onInput} value={this.state.password}></input>
         </div>
       </div>

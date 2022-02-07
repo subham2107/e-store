@@ -7,15 +7,15 @@
     cursor: pointer;
     border: none;
     font-family: inherit;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     min-width: 70px;
     max-width: 70px; 
     
     
 }
 .form-submit-btn {
-    background-color: #123f91;
+    background-color: #21af57;
     color: #fff;
     font-size: 16px;
     line-height: 2; 
@@ -32,7 +32,7 @@
 }
 
 .form-submit-btn:active {
-  background-color: #578ef5;
+  background-color: #498a13;
 }
 
 .form-login-btn:active {
@@ -41,7 +41,7 @@
 
 .loginHeader {
     text-align: center;
-    font-size: 15px;
+    font-size: 20px;
 }
 .loginError {
     text-align: center;
@@ -92,17 +92,19 @@
 }
 
 
-.loginPage {
+/* .loginPage {
     position: absolute;
     width: 300px;
-    height: 350px;
+    /* height: 300px; */
   
     /* Center form on page horizontally & vertically */
     /* top: 50%;
     left: 50%;
     margin-top: -155px;
     margin-left: -155px; */
+    /*
     border: solid 1px;
     border-radius: 20px;
 
-}
+} 
+*/

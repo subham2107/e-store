@@ -34,7 +34,11 @@
   
   }
   
-  
+.cart-icon {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
   
   #hamburger {
     margin-top: 14px;
@@ -48,7 +52,7 @@
     .dropdown-content span {
       display: block;
       text-decoration: none;
-      min-width: 180px;
+      min-width: 70px;
       padding-left: 10px;
       padding-right: 10px;
       line-height: 40px;
@@ -57,7 +61,11 @@
       box-shadow: 1px 2px 2px rgb(0 0 0 / 10%), -1px -1px 2px rgb(0 0 0 / 8%);
       
     }
-    
+    .dropdown-arrow{
+      height: 10px;
+      width: 10px;
+      margin-left: 3px;
+    }
     .dropdown-content{
       display: none;
     }
@@ -75,7 +83,7 @@
   
     .dropdown-nav:hover{
       cursor: pointer;
-      color:#84c225;
+      color:rgb(16, 114, 212);;
       
     }
   
@@ -83,12 +91,11 @@
     
   
     .navbar {
-      /*added flex wrap..change in all*/
           display: flex;
           justify-content: space-around;
           align-items: center;
           flex-wrap: wrap;
-          line-height: 60px;
+          line-height: 62px;
           background-color: rgb(255, 255, 255);
           position: sticky;
           z-index: 999;
