@@ -1,5 +1,6 @@
 import React from 'react';
-import NavBar from './Navbar';
+import NavBar1 from './NavBar1';
+import NavBar2 from './NavBar2';
 import Banner from './Banner';
 import Footer from './Footer';
 
@@ -14,7 +15,8 @@ import Footer from './Footer';
      render() {
          return (
              <div>
-                 <NavBar/>
+                 <NavBar1/>
+                 <NavBar2/>
                  <Banner/>
                  <Footer/>
              </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PopUp from './PopUp';
 import SearchBar from './SearchBar';
-import './NavBar.css';
+import './NavBar1.css';
 import './index.css';
 
 class NavBar extends React.Component{
@@ -68,7 +68,7 @@ render() {
     logininfo=
     <div className="dropdown-nav" ><span>{this.state.userName}<img className = "dropdown-arrow" alt="img" src = "images/down-arrow.svg"></img></span>
     <div className="dropdown-content">
-      <span className = "box" >My orders</span>
+      <span className = "box" >Orders</span>
       <span className = "box" onClick={this.onLogout}>Logout</span>
     </div>
   </div>
@@ -81,7 +81,7 @@ render() {
 <header className="navbar">
    <Link to='/'><div className="companyLogo"><b className="logoY">E</b>-Store</div></Link>
    {this.props.displaySearch? <div></div>:<SearchBar searchProductResult={this.searchProductResult}/>}
-   <img className = "cart-icon" src = "images/shopping_cart.png" alt = "img"></img>
+   <img className = "cart-icon" src = "/images/shopping_cart.png" alt = "img"></img>
    <span className="login-signup">{logininfo}</span>
    {this.state.isPopUp?<PopUp togglePopUp={this.togglePopUp}/>:null}
    

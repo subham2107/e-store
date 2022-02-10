@@ -1,7 +1,7 @@
 .SearchBar {
     background-color: #fff;
     height: 39px;
-    width: 290px;
+    width: auto;
     border-radius: 3px;
     display: flex;
     box-shadow: 1px 2px 2px rgb(0 0 0 / 10%), -1px -1px 2px rgb(0 0 0 / 8%);

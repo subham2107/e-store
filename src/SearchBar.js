@@ -1,6 +1,6 @@
 import React from 'react';
 import './SearchBar.css'
-import './NavBar.css'
+import './NavBar1.css'
 
 class SearchBar extends React.Component {
     constructor(props){
@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
 
 onInput = event => {
     this.setState({ [event.target.name]: event.target.value });
-    if(event.target.value.length==0)
+    if(event.target.value.length===0)
     {
         window.location.reload();
     }

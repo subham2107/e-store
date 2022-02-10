@@ -52,7 +52,7 @@
     .dropdown-content span {
       display: block;
       text-decoration: none;
-      min-width: 70px;
+      min-width: 50px;
       padding-left: 10px;
       padding-right: 10px;
       line-height: 40px;
@@ -86,8 +86,6 @@
       color:rgb(16, 114, 212);;
       
     }
-  
-  
     
   
     .navbar {

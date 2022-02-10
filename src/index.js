@@ -4,6 +4,9 @@ import './index.css';
 import Profile from './Profile';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './HomePage';
+import ProductList from './ProductList';
+import ProductDetail from './ProductDetail';
+
 
 function App() {
   return (
@@ -12,6 +15,8 @@ function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/product/category/:categoryName" component={ProductList}/>
+          <Route exact path="/product/:productId" component={ProductDetail}/>
           <Route exact path="/profile" component={Profile} />
         </Switch>
     </Router>
