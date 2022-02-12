@@ -7,8 +7,8 @@
     cursor: pointer;
     border: none;
     font-family: inherit;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     min-width: 70px;
     max-width: 70px; 
     
@@ -24,7 +24,7 @@
     border: none;
     font-family: inherit;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     min-width: 70px;
     max-width: 70px; 
     margin-left: 10px;
@@ -55,13 +55,13 @@
 }
 
 .emailId-label {
-  margin-right: 143px;
+  margin-right: 1px;
 }
 .userName-label {
-  margin-right: 128px;
+  margin-right: 15px;
 }
 .password-label {
-  margin-right: 130px;
+  margin-right: 20px;
 }
 .form-data {
   text-align: center;
@@ -74,6 +74,12 @@
 .emailId-input {
   width: 200px;
   padding: 6px;
+  margin-left: 26px;
+  
+}
+
+.signupHorizontalLine {
+  width: 85%;
 }
 
 .name-input {
@@ -91,20 +97,3 @@
   padding: 6px;
 }
 
-
-/* .loginPage {
-    position: absolute;
-    width: 300px;
-    /* height: 300px; */
-  
-    /* Center form on page horizontally & vertically */
-    /* top: 50%;
-    left: 50%;
-    margin-top: -155px;
-    margin-left: -155px; */
-    /*
-    border: solid 1px;
-    border-radius: 20px;
-
-} 
-*/

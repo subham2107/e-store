@@ -11,8 +11,8 @@
   }
   .popup-inner{
     position: relative;
-    min-width: 350px;
-    max-width: 350px;
+    min-width: 370px;
+    max-width: 370px;
     background-color:white;
     z-index: 1;
     border-radius: 8px;
@@ -39,17 +39,16 @@
   }
 
   .horizontalPopupLine {
-    width: 89%;
+    width: 85%;
   }
   
   .close-button {
     cursor: pointer;
-    /* background-color: rgb(211, 21, 21); */
     height: 30px;
     width: 30px;
     border: none;
     border-radius: 50%;
-    margin-left: 220px;
+    margin-left: 230px;
     
   }
 

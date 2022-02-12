@@ -71,7 +71,7 @@
     }
   
     .dropdown-content span:hover{
-      color:#000000;
+      color:rgb(16, 114, 212);
       background-color: #e7e7e7; 
     }
     
@@ -96,7 +96,7 @@
           line-height: 62px;
           background-color: rgb(255, 255, 255);
           position: sticky;
-          z-index: 999;
+          z-index: 900;
           top: 0;
           box-shadow: 1px 2px 2px rgb(0 0 0 / 10%), -1px -1px 2px rgb(0 0 0 / 8%);
           

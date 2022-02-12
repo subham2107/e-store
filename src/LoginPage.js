@@ -107,7 +107,8 @@ class LoginPage extends React.Component {
              <input className='form-login-btn'  type="submit" onClick={this.onLoginClick} value="Login"></input>
             </div>
             <div>
-              <label>New User? </label>
+              <hr className = "signupHorizontalLine"></hr>
+              <label>New User ? </label>
              <input className='form-submit-btn'  type="submit" onClick={this.onSignupClick} value="Sign up"></input>
             </div>
           </div>

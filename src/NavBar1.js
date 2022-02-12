@@ -66,7 +66,7 @@ render() {
   
   if(this.state.isSignedUp) {
     logininfo=
-    <div className="dropdown-nav" ><span>{this.state.userName}<img className = "dropdown-arrow" alt="img" src = "images/down-arrow.svg"></img></span>
+    <div className="dropdown-nav" ><span>{this.state.userName}<img className = "dropdown-arrow" alt="img" src = "/images/down-arrow.svg"></img></span>
     <div className="dropdown-content">
       <span className = "box" >Orders</span>
       <span className = "box" onClick={this.onLogout}>Logout</span>

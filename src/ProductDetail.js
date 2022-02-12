@@ -28,7 +28,7 @@ class ProductDetail extends React.Component {
                 <NavBar1/>
                 <NavBar2/>
                 <h3>Title: {(this.state.product.title)}</h3>
-                <img alt = "img" src={(this.state.product.image)}/>
+                <img className = "productDetailImage" alt = "img" src={(this.state.product.image)}/>
                 <h4>Description: {(this.state.product.description)}</h4>
                 <button className="addToCartBtn">Add to Cart</button>
                 <Footer/>
