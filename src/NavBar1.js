@@ -13,7 +13,8 @@ class NavBar extends React.Component{
       password: '',
       isSignedUp: false,
       isPopUp: false,
-      userName: ''
+      userName: '',
+      cartProductCount: ''
     };
 }
 
@@ -30,6 +31,16 @@ componentDidMount() {
       this.setState({isSignedUp: false});
     }
   });
+
+  fetch('/api/cart/count')
+  .then(response => response.json())
+  .then(cartProductCount => {
+    console.log(cartProductCount.cartProductCount)
+    this.setState({cartProductCount: cartProductCount.cartProductCount})
+  })
+  .catch(()=>{
+    console.log("error")
+  })
 }
 
 
@@ -74,18 +85,19 @@ render() {
   </div>
   }
   else{
-    logininfo=<div onClick={this.togglePopUp}>Login</div>
+    logininfo=<div className = 'loginNavBar' onClick={this.togglePopUp}>Login</div>
   }
 
   return (
-<header className="navbar">
-   <Link to='/'><div className="companyLogo"><b className="logoY">E</b>-Store</div></Link>
-   {this.props.displaySearch? <div></div>:<SearchBar searchProductResult={this.searchProductResult}/>}
-   <img className = "cart-icon" src = "/images/shopping_cart.png" alt = "img"></img>
-   <span className="login-signup">{logininfo}</span>
-   {this.state.isPopUp?<PopUp togglePopUp={this.togglePopUp}/>:null}
-   
-</header>
+    <header className="navbar">
+      <Link to='/'><div className="companyLogo"><b className="logoY">E</b>-Store</div></Link>
+      {this.props.displaySearch? <div></div>:<SearchBar searchProductResult={this.searchProductResult}/>}
+      <img className = "cart-icon" src = "/images/shopping_cart.png" alt = "img"></img>
+      <span>({this.state.cartProductCount})</span>
+      <span className="login-signup">{logininfo}</span>
+      {this.state.isPopUp?<PopUp togglePopUp={this.togglePopUp}/>:null}
+      
+    </header>
 
 
     );

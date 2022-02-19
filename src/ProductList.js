@@ -22,7 +22,7 @@ class ProductList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='productListDiv'>
             <NavBar1/>
             <NavBar2/>
             <h1 className = "productListHeader">DEALS OF THE DAY</h1>
@@ -41,7 +41,6 @@ class ProductList extends React.Component {
                     </div>
                     </div>
                     </Link>
-
                 ))}
             </div>
             <Footer/>

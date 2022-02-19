@@ -19,6 +19,10 @@
     border-radius: 3px;
     padding: 2px;
   }
+
+  /* .productListDiv{
+    background-color: rgb(218, 245, 245);
+  } */
   
   .eachProductDiv {
     display: flex;

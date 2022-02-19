@@ -1,5 +1,20 @@
 .addToCartBtn {
-    background-color: #578ef5;
+    background-color: #ff9f00;
+    color: #fff;
+    font-size: 16px;
+    line-height: 2; 
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width: 100px;
+    max-width: 100px; 
+}
+
+.goToCartBtn {
+    background-color: #fb641b;
     color: #fff;
     font-size: 16px;
     line-height: 2; 

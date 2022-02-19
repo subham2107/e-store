@@ -5,6 +5,9 @@
     align-items: center;
     line-height: 40px;
     box-shadow: 1px 2px 2px rgb(0 0 0 / 10%), -1px -1px 2px rgb(0 0 0 / 8%);
+    position: sticky;
+    top: 62px;
+    background-color: white;
 }
 
 .NavBar2 div {
