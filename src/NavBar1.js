@@ -79,7 +79,7 @@ render() {
     logininfo=
     <div className="dropdown-nav" ><span>{this.state.userName}<img className = "dropdown-arrow" alt="img" src = "/images/down-arrow.svg"></img></span>
     <div className="dropdown-content">
-      <span className = "box" >Orders</span>
+      <Link to="/orders"><span className = "box">Orders</span></Link>
       <span className = "box" onClick={this.onLogout}>Logout</span>
     </div>
   </div>
@@ -92,8 +92,9 @@ render() {
     <header className="navbar">
       <Link to='/'><div className="companyLogo"><b className="logoY">E</b>-Store</div></Link>
       {this.props.displaySearch? <div></div>:<SearchBar searchProductResult={this.searchProductResult}/>}
-      <img className = "cart-icon" src = "/images/shopping_cart.png" alt = "img"></img>
-      <span>({this.state.cartProductCount})</span>
+      <Link to="/cart"><img className = "cart-icon" src = "/images/shopping_cart.png" alt = "img"></img>
+      <span>({this.state.cartProductCount})</span></Link>
+      
       <span className="login-signup">{logininfo}</span>
       {this.state.isPopUp?<PopUp togglePopUp={this.togglePopUp}/>:null}
       

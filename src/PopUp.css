@@ -10,9 +10,11 @@
     align-items: center;
   }
   .popup-inner{
-    position: relative;
+    
     min-width: 370px;
     max-width: 370px;
+    /* min-height: 520px;
+    max-height: 520px; */
     background-color:white;
     z-index: 1;
     border-radius: 8px;

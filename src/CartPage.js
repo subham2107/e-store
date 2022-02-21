@@ -2,17 +2,42 @@ import React from 'react';
 import NavBar1 from './NavBar1';
 import NavBar2 from './NavBar2';
 import './CartPage.css';
+import './PopUp.css';
+import './LoginPage.css';
+import Footer from './Footer';
+import {Link} from 'react-router-dom';
+import PopUp from './PopUp';
+
+
 
 class CartPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             productList: [],
-            totalCartPrice: ''
+            totalCartPrice: '',
+            isSignedUp: false,
+            isPopUp: false,
         };
     }
 
     componentDidMount() {
+
+        fetch('/api/users/me').then(user => {
+            console.log(user)
+            if (user.status === 200) {
+              this.setState({isSignedUp: true});
+              console.log(this.state.isSignedUp);
+            }
+            else {
+              this.setState({isSignedUp: false});
+              console.log(this.state.isSignedUp);
+            }
+          })
+          .catch(()=>{
+              console.log("error")
+        })
+
         fetch(`/api/cart/me`)
         .then(response=>response.json())
         .then(cartProducts=> {
@@ -29,7 +54,11 @@ class CartPage extends React.Component {
             console.log(this.state.totalCartPrice)
             console.log("hello")
         })
+        console.log("this popup")
+        console.log(this.state.isPopUp)
+          
     }
+      
 
     decreaseClick(productId) {
         console.log("inside decrease click")
@@ -91,7 +120,25 @@ class CartPage extends React.Component {
         window.location.reload();
     }
 
+    togglePopUp=()=>{
+        console.log("inside toggle Popup function inside CartPage")
+        console.log(this.state.isPopUp)
+        this.setState({isPopUp:!this.state.isPopUp})
+
+    }
+
     render() {
+        let myButton;
+        if(this.state.isSignedUp == false) {
+            myButton = <button onClick={this.togglePopUp}>PROCEED TO CHECKOUT</button>
+            // alert('Please Login')
+        }
+        else {
+            myButton = <Link to="/checkout"><button>PROCEED TO CHECKOUT</button></Link>
+        }
+        console.log(this.state.isPopUp)
+        console.log(this.state.isSignedUp)
+
         return(
             <div>
                 <NavBar1/>
@@ -104,7 +151,8 @@ class CartPage extends React.Component {
                 <div>
                     <div>
                         <h1>Total Price: Rs. {this.state.totalCartPrice}</h1>
-                        <button>Proceed to checkout</button>
+                        {myButton}
+                        <div className = "checkoutPagePopUp">{this.state.isPopUp?<PopUp togglePopUp={this.togglePopUp}/>:null}</div>
                     </div>
                     
                     {(this.state.productList).map((eachProduct) => (
@@ -122,7 +170,7 @@ class CartPage extends React.Component {
                     ))}
                 </div> 
                 }
-               
+            <Footer/>
             </div>
         );
     }

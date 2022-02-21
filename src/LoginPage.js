@@ -1,5 +1,7 @@
 import React from 'react';
-import './LoginPage.css'
+import './LoginPage.css';
+import './PopUp.css';
+
 
 class LoginPage extends React.Component {
   constructor(props) {

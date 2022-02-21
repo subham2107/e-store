@@ -4,7 +4,8 @@ const router = express.Router();
 const users = require('./routes/users');
 const sessions = require('./routes/sessions');
 const products = require('./routes/products');
-const carts = require('./routes/carts')
+const carts = require('./routes/carts');
+const orders = require('./routes/orders');
 
 // Add json and urlencoded middleware
 router.use(express.json());
@@ -16,6 +17,8 @@ router.use('/sessions', sessions);
 
 router.use('/products', products);
 
-router.use('/cart', carts)
+router.use('/cart', carts);
+
+router.use('/orders', orders);
 
 module.exports = router;
