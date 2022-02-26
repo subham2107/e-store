@@ -2,6 +2,14 @@
     color:rgb(0, 0, 0);
     cursor: pointer;
   }
+
+  .cartLogin {
+    display: flex;
+  }
+
+  .login-signup {
+    margin-left: 30px;
+  }
   
   .login-signup:hover{
     color:rgb(16, 114, 212);

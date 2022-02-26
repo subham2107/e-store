@@ -36,7 +36,9 @@ componentDidMount() {
   .then(response => response.json())
   .then(cartProductCount => {
     console.log(cartProductCount.cartProductCount)
+    console.log(this.props.cartProductCount)
     this.setState({cartProductCount: cartProductCount.cartProductCount})
+
   })
   .catch(()=>{
     console.log("error")
@@ -73,31 +75,37 @@ searchProductResult = (productsSearchResult) => {
 
 render() {
   
+
+  console.log(this.props.cartProductCount)
+
   let logininfo;
   
   if(this.state.isSignedUp) {
     logininfo=
-    <div className="dropdown-nav" ><span>{this.state.userName}<img className = "dropdown-arrow" alt="img" src = "/images/down-arrow.svg"></img></span>
-    <div className="dropdown-content">
-      <Link to="/orders"><span className = "box">Orders</span></Link>
-      <span className = "box" onClick={this.onLogout}>Logout</span>
-    </div>
+    <div className="dropdown-nav" >
+      <span>{this.state.userName}<img className = "dropdown-arrow" alt="img" src = "/images/down-arrow.svg"></img></span>
+      <div className="dropdown-content">
+        <Link to="/orders"><span className = "box">Orders</span></Link>
+        <span className = "box" onClick={this.onLogout}>Logout</span>
+      </div>
   </div>
   }
   else{
-    logininfo=<div className = 'loginNavBar' onClick={this.togglePopUp}>Login</div>
+    logininfo=<div className = 'loginNavBar' onClick={this.togglePopUp}>LOGIN</div>
   }
 
   return (
     <header className="navbar">
       <Link to='/'><div className="companyLogo"><b className="logoY">E</b>-Store</div></Link>
       {this.props.displaySearch? <div></div>:<SearchBar searchProductResult={this.searchProductResult}/>}
+
+      <div className='cartLogin'>
       <Link to="/cart"><img className = "cart-icon" src = "/images/shopping_cart.png" alt = "img"></img>
-      <span>({this.state.cartProductCount})</span></Link>
+      <span>({this.props.cartProductCount? this.props.cartProductCount: this.state.cartProductCount})</span></Link>
       
       <span className="login-signup">{logininfo}</span>
       {this.state.isPopUp?<PopUp togglePopUp={this.togglePopUp}/>:null}
-      
+      </div>
     </header>
 
 

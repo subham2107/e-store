@@ -8,6 +8,7 @@
     position: sticky;
     top: 62px;
     background-color: white;
+    z-index: 90;
 }
 
 .NavBar2 div {

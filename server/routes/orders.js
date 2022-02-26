@@ -5,8 +5,8 @@ const crypto = require("crypto");
 const auth = require("../middlewares/auth");
 const Cart = require("../models/cart");
 const Order = require("../models/order");
-require('dotenv').config();
 
+require('dotenv').config();
 const router = express.Router();
 const rzpKey = process.env.RZP_KEY_ID;
 const secret = process.env.RZP_KEY_SECRET;
@@ -19,16 +19,12 @@ const rzpInstance = new Razorpay({
 
 router.get('/', (req,res) => {
     
-    Order.find({userId : req.session.userId}).then(
-        order => {
-            
-            if(order)
+    Order.find({userId : req.session.userId})
+    .then(order => { 
+        if(order) {
             res.send(order);
-            else{
-                res.send({msg : "kkk"})
-            }
         }
-    )
+    })
     .catch(() => {
         res.status(500).send({ error: "Internal Server Error" });
     });   
@@ -37,11 +33,13 @@ router.get('/', (req,res) => {
 router.get('/:orderId', (req, res) => {
   
   Order.findOne({ _id: req.params.orderId}).then(order => {
-      if(order)
-      res.send(order);
-      else
-      res.send({message : "No Orders"})
-  }).catch(() => {
+      if(order) {
+        res.send(order);
+      }  
+      else {
+        res.send({message : "No Orders"})
+      }})
+      .catch(() => {
       res.status(500).send({ error: "Internal Server Error" });
   });
 });
@@ -69,11 +67,11 @@ router.post('/', auth.authenticate,(req, res) => {
             console.log(options)
             //Create order on razorpay
             rzpInstance.orders.create(options, (err, rzpOrder) => {
-                console.log(rzpOrder)
-                console.log("rzpOrder.id")
-                console.log(typeof(rzpOrder.id))
-                console.log("error")
-                console.log(err)
+                // console.log(rzpOrder)
+                // console.log("rzpOrder.id")
+                // console.log(typeof(rzpOrder.id))
+                // console.log("error")
+                // console.log(err)
                 if (err) {
                     res.status(500).send({ error: 'Error in creating razorpay order' });
                     return;

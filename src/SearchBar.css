@@ -3,7 +3,7 @@
     height: 39px;
     width: auto;
     border-radius: 3px;
-    display: flex;
+    display: none;
     box-shadow: 1px 2px 2px rgb(0 0 0 / 10%), -1px -1px 2px rgb(0 0 0 / 8%);
 
   }

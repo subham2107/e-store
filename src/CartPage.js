@@ -117,7 +117,7 @@ class CartPage extends React.Component {
         .catch(()=>{
             console.log("error")
         })
-        window.location.reload();
+        //window.location.reload();
     }
 
     togglePopUp=()=>{
@@ -160,7 +160,11 @@ class CartPage extends React.Component {
                             <div>
                                 Title: {eachProduct.title},
                                 Quantity: 
+                                {eachProduct.cartQuantity == 1? 
+                                <button className="decreaseBtn" disabled={true} onClick={()=>this.decreaseClick(eachProduct.productId)}>-</button>
+                                :
                                 <button className="decreaseBtn" onClick={()=>this.decreaseClick(eachProduct.productId)}>-</button>
+                                } 
                                 {eachProduct.cartQuantity} 
                                 <button className="increaseBtn" onClick={()=>this.increaseClick(eachProduct.productId)}>+</button>
                                 Price: Rs. {eachProduct.quantityPrice}

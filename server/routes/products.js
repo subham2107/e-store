@@ -11,6 +11,15 @@ router.get('/', (req,res) => {
     });
 });
 
+router.get('/sort', (req,res) => {
+    Product.find().then(product => {
+        res.send(product.sort());
+    })
+    .catch(()=>{
+        res.status(500).send({error: "Internal Server Error"});
+    });
+});
+
 router.get('/:productId', (req,res) => {
     Product.find({_id: req.params.productId})
     .then(product => {

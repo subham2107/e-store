@@ -1,3 +1,8 @@
 .checkoutPagePopUp {
     
 }
+
+button.decreaseBtn:disabled {
+    opacity: 0.3;
+    cursor: auto;
+}
