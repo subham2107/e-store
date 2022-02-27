@@ -6,6 +6,7 @@ import Footer from './Footer';
 import './NavBar1.css';
 import './NavBar2.css';
 import './index.css';
+import './HomePage.css';
 import {Link} from 'react-router-dom';
 
  class HomePage extends React.Component {
@@ -43,7 +44,7 @@ import {Link} from 'react-router-dom';
                     </div>
                     </Link>
                 ))}
-            </div>
+                </div>
                  <Footer/>
              </div>
          );

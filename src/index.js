@@ -7,7 +7,6 @@ import HomePage from './HomePage';
 import ProductList from './ProductList';
 import ProductDetail from './ProductDetail';
 import CartPage from './CartPage';
-import CheckoutPage from './CheckoutPage';
 import OrderPage from './OrderPage';
 
 
@@ -22,7 +21,6 @@ function App() {
           <Route exact path="/product/category/:categoryName" component={ProductList}/>
           <Route exact path="/product/:productId" component={ProductDetail}/>
           <Route exact path="/cart" component={CartPage}/>
-          <Route exact path="/checkout" component={CheckoutPage}/>
           <Route exact path="/orders" component={OrderPage} />
           <Route exact path="/profile" component={Profile} />
         </Switch>

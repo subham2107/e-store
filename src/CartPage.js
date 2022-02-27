@@ -7,6 +7,7 @@ import './LoginPage.css';
 import Footer from './Footer';
 import {Link} from 'react-router-dom';
 import PopUp from './PopUp';
+import {initiatePayment} from './payment';
 
 
 
@@ -117,7 +118,7 @@ class CartPage extends React.Component {
         .catch(()=>{
             console.log("error")
         })
-        //window.location.reload();
+        window.location.reload();
     }
 
     togglePopUp=()=>{
@@ -127,14 +128,40 @@ class CartPage extends React.Component {
 
     }
 
+    placeOrderClick = () => {
+        alert('Use this dummy card no: 5267318187975449 and any random cvv')
+        const paymentHandlers = {
+          onSuccess : (options) => {
+            console.log("options")
+            console.log(options)
+            fetch(`/api/orders/${options.id}`, {
+            method: 'PUT',
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8'
+            },
+            body: JSON.stringify(options)
+            })
+            .then(res => {
+              if(res.status === 204){
+                window.location = `/orders`
+              }
+            })
+          },
+          onDismiss: () => {
+          }
+        }
+        const onOrderCreateFailure = (err) => {
+        }
+        initiatePayment(paymentHandlers, onOrderCreateFailure);
+  }
+
     render() {
         let myButton;
-        if(this.state.isSignedUp == false) {
-            myButton = <button onClick={this.togglePopUp}>PROCEED TO CHECKOUT</button>
-            // alert('Please Login')
+        if(this.state.isSignedUp === false) {
+            myButton = <button class="proceedToCheckoutBtn" onClick={this.togglePopUp}>PROCEED TO CHECKOUT</button>
         }
         else {
-            myButton = <Link to="/checkout"><button>PROCEED TO CHECKOUT</button></Link>
+            myButton = <button type="submit" className="proceedToCheckoutBtn1" onClick={()=>this.placeOrderClick()}>PAY NOW</button>
         }
         console.log(this.state.isPopUp)
         console.log(this.state.isSignedUp)
@@ -143,14 +170,15 @@ class CartPage extends React.Component {
             <div>
                 <NavBar1/>
                 <NavBar2/>
+                <div className = "cartDiv">
                 {this.state.productList.length===0?
-                    <div>
+                    <div className = "noProductsDiv">
                         There are no products in the cart !
                     </div>
                 :
                 <div>
                     <div>
-                        <h1>Total Price: Rs. {this.state.totalCartPrice}</h1>
+                        <span>Total Price: Rs. {this.state.totalCartPrice}</span>
                         {myButton}
                         <div className = "checkoutPagePopUp">{this.state.isPopUp?<PopUp togglePopUp={this.togglePopUp}/>:null}</div>
                     </div>
@@ -158,22 +186,24 @@ class CartPage extends React.Component {
                     {(this.state.productList).map((eachProduct) => (
                         <div>
                             <div>
-                                Title: {eachProduct.title},
+                            <Link to={`/product/${(eachProduct.productId)}`}><img className="cartImage" src={eachProduct.image} alt={eachProduct.title} /></Link>
+                                {eachProduct.title},
                                 Quantity: 
-                                {eachProduct.cartQuantity == 1? 
+                                {eachProduct.cartQuantity === 1? 
                                 <button className="decreaseBtn" disabled={true} onClick={()=>this.decreaseClick(eachProduct.productId)}>-</button>
                                 :
                                 <button className="decreaseBtn" onClick={()=>this.decreaseClick(eachProduct.productId)}>-</button>
                                 } 
-                                {eachProduct.cartQuantity} 
+                                <span className ="eachProductQuantity">{eachProduct.cartQuantity}</span>
                                 <button className="increaseBtn" onClick={()=>this.increaseClick(eachProduct.productId)}>+</button>
                                 Price: Rs. {eachProduct.quantityPrice}
-                                <button onClick={()=>this.removeClick(eachProduct.productId)}>Remove</button>
+                                <button class="removeBtn" onClick={()=>this.removeClick(eachProduct.productId)}>Remove</button>
                             </div>
                         </div>
                     ))}
                 </div> 
                 }
+                </div>
             <Footer/>
             </div>
         );

@@ -2,13 +2,21 @@
     color:rgb(0, 0, 0);
     cursor: pointer;
   }
+  /* .cartCount {
+    position:absolute;
+    color: white;
+    border-radius: 50%;
+    background-color: red;
+    margin-bottom: 10px;
+  } */
 
   .cartLogin {
     display: flex;
+    margin-right: 35px;
   }
 
   .login-signup {
-    margin-left: 30px;
+    margin-left: 8px;
   }
   
   .login-signup:hover{
@@ -24,6 +32,7 @@
     text-decoration: none;
     font-size: 35px;
     cursor: pointer;
+    margin-left: 35px;
   }
   
   .logoY {
@@ -49,21 +58,12 @@
 }
 
   
-  #hamburger {
-    margin-top: 14px;
-  }
-  
-  #hamburger:active{
-    background-color:#d4d4d4;
-  
-  }
-  
     .dropdown-content span {
       display: block;
       text-decoration: none;
       min-width: 50px;
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
       line-height: 40px;
       color:#555555;
       background-color: #f6f8fa;
@@ -99,7 +99,7 @@
   
     .navbar {
           display: flex;
-          justify-content: space-around;
+          justify-content:space-between;
           align-items: center;
           flex-wrap: wrap;
           line-height: 62px;
@@ -112,7 +112,3 @@
           
     } 
   
-    .dropdown-arrow{
-      height: 10px;
-      width: 10px
-    }

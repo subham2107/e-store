@@ -70,17 +70,36 @@ router.get('/:userId', (req, res) => {
 //         res.send(401).send({ error: "Not logged in"});
 //     }
 
-//     const { firstName, lastName } = req.body;
+//     const { cityName, pincode, stateName } = req.body;
+//     console.log(req.body)
 
 //     const updateQuery = {};
-//     (firstName !== undefined) && (updateQuery.firstName = firstName);
-//     (lastName !== undefined) && (updateQuery.lastName = lastName);
+//     (cityName !== undefined) && (updateQuery.address.cityName = cityName);
+//     (pincode !== undefined) && (updateQuery.address.pincode = pincode);
+//     (stateName!== undefined) && (updateQuery.address.stateName = stateName);
 
+//     console.log(updateQuery)
+    
+//     console.log('hi inside put')
 //     User.updateOne({ _id: req.session.userId }, updateQuery).then(() => {
 //         res.status(204).send();
 //     }).catch(() => {
 //         res.status(500).send({ error: "Internal Server Error" });
 //     });
 // });
+
+router.post('/address', auth.authenticate, (req,res) => {
+    const userId = req.session.userId;
+    console.log(req.body)
+    const { cityName, pincode, stateName } = req.body;
+    console.log(cityName + pincode + stateName)
+    User.find({_id: userId})
+    .then(user => {
+        res.status(201).send()
+    })
+    .catch(()=>{
+        res.status(500).send({error: "Internal Server Error"})
+    })
+})
 
 module.exports = router;

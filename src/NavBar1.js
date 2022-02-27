@@ -100,9 +100,12 @@ render() {
       {this.props.displaySearch? <div></div>:<SearchBar searchProductResult={this.searchProductResult}/>}
 
       <div className='cartLogin'>
-      <Link to="/cart"><img className = "cart-icon" src = "/images/shopping_cart.png" alt = "img"></img>
-      <span>({this.props.cartProductCount? this.props.cartProductCount: this.state.cartProductCount})</span></Link>
-      
+        <div>
+      <Link to="/cart">
+      <img className = "cart-icon" src = "/images/shopping_cart.png" alt = "img"></img>
+      <span className="cartCount">({this.props.cartProductCount? this.props.cartProductCount: this.state.cartProductCount})</span>
+      </Link>
+      </div>
       <span className="login-signup">{logininfo}</span>
       {this.state.isPopUp?<PopUp togglePopUp={this.togglePopUp}/>:null}
       </div>

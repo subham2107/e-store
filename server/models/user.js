@@ -8,6 +8,13 @@ const userSchema = new Schema({
         unique: true
     },
     userName: String,
+    address: [
+        {
+            cityName: String,
+            pincode: String,
+            stateName: String
+        }    
+    ],
     createdAt: {
         type: Date,
         default: Date.now()

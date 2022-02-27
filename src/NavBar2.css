@@ -11,12 +11,21 @@
     z-index: 90;
 }
 
-.NavBar2 div {
+.NavBar2 a {
+  text-decoration: none;
+  color: black;
+}
+
+.NavBar2 a:hover {
+  color: rgb(16, 114, 212);
+}
+
+/* .NavBar2 div {
     color:rgb(0, 0, 0);
     cursor: pointer;
   }
   
   .NavBar2 div:hover{
     color:rgb(16, 114, 212);
-  }
+  } */
 

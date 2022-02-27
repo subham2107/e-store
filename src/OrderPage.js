@@ -29,7 +29,7 @@ class OrderPage extends React.Component{
             <div>
                 <NavBar1/>
                 <NavBar2/>
-                
+                <h1>Orders</h1>
                 {this.state.orders.map((eachOrder)=>(
                     <div>
                     {eachOrder.productList.map((eachProduct)=>(

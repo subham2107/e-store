@@ -6,3 +6,77 @@ button.decreaseBtn:disabled {
     opacity: 0.3;
     cursor: auto;
 }
+
+.cartDiv {
+    min-height: calc(79vh);
+}
+
+.noProductsDiv {
+    font-size: 20px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 40vh;
+}
+
+.cartImage {
+    width: 70px;
+    height: 70px;
+}
+
+.eachProductQuantity {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 4px;
+}
+
+.proceedToCheckoutBtn {
+    background-color: #81bd21;
+    color: #fff;
+    font-size: 16px;
+    line-height: 2; 
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    margin-right: 20px;
+    min-width: 200px;
+    max-width: 200px; 
+}
+
+.proceedToCheckoutBtn1 {
+    background-color: #ff9f00;
+    color: #fff;
+    font-size: 16px;
+    line-height: 2; 
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    margin-right: 20px;
+    min-width: 100px;
+    max-width: 100px; 
+}
+
+.removeBtn {
+    background-color: #e00303;
+    color: #fff;
+    font-size: 16px;
+    line-height: 2; 
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    margin-right: 20px;
+    min-width: 70px;
+    max-width: 70px;
+}
+
+.increaseBtn {
+    border-radius: 50%;
+}
+
+.decreaseBtn {
+    border-radius: 50%;
+}

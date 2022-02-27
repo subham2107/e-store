@@ -11,6 +11,14 @@ const app = express();
 const api = require('./server/api');
 const db = require('./server/db');
 
+// var bodyParser = require('body-parser');
+
+// // configure the app to use bodyParser()
+// app.use(bodyParser.urlencoded({
+//     extended: false
+// }));
+// app.use(bodyParser.json());
+
 //Configure .env
 require('dotenv').config();
 
