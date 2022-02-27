@@ -2,3 +2,9 @@
     height: 50px;
     width: 50px;
 }
+
+.orderDiv {
+    margin-left: 50px;
+    margin-right: 50px;
+    min-height: calc(79vh);
+}

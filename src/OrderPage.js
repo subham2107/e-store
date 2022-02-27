@@ -3,6 +3,7 @@ import NavBar1 from './NavBar1';
 import NavBar2 from './NavBar2';
 import Footer from './Footer';
 import './OrderPage.css';
+import './CartPage.css';
 import {Link} from 'react-router-dom';
 
 class OrderPage extends React.Component{
@@ -29,7 +30,13 @@ class OrderPage extends React.Component{
             <div>
                 <NavBar1/>
                 <NavBar2/>
-                <h1>Orders</h1>
+                <div className="orderDiv">
+                {this.state.orders.length===0?
+                    <div className = "noProductsDiv">
+                        You have not ordered yet !
+                    </div>
+                :<div>
+                <h1 style={{textAlign: 'center'}}>My orders</h1>
                 {this.state.orders.map((eachOrder)=>(
                     <div>
                     {eachOrder.productList.map((eachProduct)=>(
@@ -40,13 +47,18 @@ class OrderPage extends React.Component{
                               Subtotal: Rs. {eachProduct.quantityPrice}
                         </div>
                     ))}
+                    <div style={{textAlign: 'center'},{fontSize: '20px'}}>
                     Total: Rs. {eachOrder.amount/100}, 
                     Ordered on: {new Date(eachOrder.createdAt).toDateString()}
+                    </div>
                     <hr></hr>
                     </div>
                     
                 ))}
+                </div>}
+                </div>
                 <Footer/>
+                
             </div>
         );
     }
