@@ -35,9 +35,7 @@
 }
 
 .productDetailImage {
-    height: 450px;
-    min-width: 370px;
-    max-width: 370px;
+    height: 450px;   
     /* box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; */ 
 
 }
@@ -48,7 +46,7 @@
   }
   
   .detail-column1 {
-    margin-left: 22px; 
+    margin: 0 auto; 
   }
   
   .detail-column2 {

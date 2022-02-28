@@ -31,7 +31,7 @@ import {Link} from 'react-router-dom';
                  <NavBar1/>
                  <NavBar2/>
                  <Banner/>
-                <h1 style={{'textAlign': 'center'}}>Check out our products</h1>
+                <h1 className='homePageProductHeader'>Check out our products</h1>
                  <div className="productListProducts">
                 {(this.state.products)
                 .map((eachProduct) =>(
