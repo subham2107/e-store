@@ -31,11 +31,13 @@
 
 .detailsPageButtons {
     display: flex;
-    margin-left: 75px;
+    justify-content: center;
 }
 
 .productDetailImage {
-    height: 450px;   
+    height: 450px;
+    min-width: 370px;
+    max-width: 370px;   
     /* box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; */ 
 
 }
