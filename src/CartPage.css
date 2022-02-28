@@ -1,14 +1,27 @@
-.checkoutPagePopUp {
+
+.eachCartDiv {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; 
+    width: 72%;
+    margin: 0 auto;
+    margin-top: 30px;
+    height: 180px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
     
 }
 
+.cartImageIncreaseDecreseDiv {
+    text-align: center;
+}
+
 button.decreaseBtn:disabled {
-    opacity: 0.3;
+    opacity: 0.9;
     cursor: auto;
 }
 
 .cartDiv {
-    min-height: calc(79vh);
+    min-height: calc(81vh);
 }
 
 .noProductsDiv {
@@ -19,9 +32,15 @@ button.decreaseBtn:disabled {
     padding-top: 40vh;
 }
 
+
+.headerBtns {
+    text-align: center;
+}
+
 .cartImage {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
 }
 
 .eachProductQuantity {
@@ -40,9 +59,17 @@ button.decreaseBtn:disabled {
     cursor: pointer;
     border: none;
     font-family: inherit;
-    margin-right: 20px;
     min-width: 200px;
     max-width: 200px; 
+}
+
+.proceedToCheckoutBtn:active {
+    background-color: #72a323;
+
+}
+
+.proceedToCheckoutBtn1:active {
+    background-color: #d68f1c;
 }
 
 .proceedToCheckoutBtn1 {
@@ -54,11 +81,14 @@ button.decreaseBtn:disabled {
     cursor: pointer;
     border: none;
     font-family: inherit;
-    margin-right: 20px;
     min-width: 100px;
     max-width: 100px; 
+
 }
 
+.removeBtn:active {
+    background-color: #ce1818;
+}
 .removeBtn {
     background-color: #e00303;
     color: #fff;
@@ -75,8 +105,19 @@ button.decreaseBtn:disabled {
 
 .increaseBtn {
     border-radius: 50%;
+    border: none;
+    height: 30px;
+    width: 30px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .decreaseBtn {
     border-radius: 50%;
+    border: none;
+    height: 30px;
+    width: 30px;
+    font-size: 16px;
+    cursor: pointer;
+
 }

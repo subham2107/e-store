@@ -25,14 +25,13 @@ class CartPage extends React.Component {
     componentDidMount() {
 
         fetch('/api/users/me').then(user => {
-            console.log(user)
             if (user.status === 200) {
               this.setState({isSignedUp: true});
-              console.log(this.state.isSignedUp);
+              
             }
             else {
               this.setState({isSignedUp: false});
-              console.log(this.state.isSignedUp);
+              
             }
           })
           .catch(()=>{
@@ -52,18 +51,15 @@ class CartPage extends React.Component {
                 this.setState({totalCartPrice: 0})
             }
             
-            console.log(this.state.totalCartPrice)
-            console.log("hello")
+            
         })
-        console.log("this popup")
-        console.log(this.state.isPopUp)
+        
           
     }
       
 
     decreaseClick(productId) {
-        console.log("inside decrease click")
-        console.log(productId)
+        
         fetch(`/api/cart/${productId}/decreaseCount`, {
             method: 'POST',
             body: JSON.stringify({}),
@@ -73,7 +69,7 @@ class CartPage extends React.Component {
         })
         .then(res =>res.json())
         .then(cartProduct=>{
-            console.log(cartProduct.cartProduct[0].productList)
+            
             this.setState({productList: cartProduct.cartProduct[0].productList})
             this.setState({totalCartPrice: cartProduct.cartProduct[0].totalCartPrice})
         })
@@ -83,8 +79,7 @@ class CartPage extends React.Component {
     }
 
     increaseClick(productId) {
-        console.log("inside increase click")
-        console.log(productId)
+       
         fetch(`/api/cart/${productId}/increaseCount`, {
             method: 'POST',
             body: JSON.stringify({}),
@@ -94,7 +89,7 @@ class CartPage extends React.Component {
         })
         .then(res =>res.json())
         .then(cartProduct=>{
-            console.log(cartProduct.cartProduct[0].productList)
+            
             this.setState({productList: cartProduct.cartProduct[0].productList})
             this.setState({totalCartPrice: cartProduct.cartProduct[0].totalCartPrice})
         })
@@ -104,36 +99,35 @@ class CartPage extends React.Component {
     }
 
     removeClick(productId) {
-        console.log("inside remove click")
-        console.log(productId)
+        
         fetch(`/api/cart/${productId}`, {
             method: 'DELETE'
         })
         .then(res =>res.json())
         .then(cartProduct=>{
-            console.log(cartProduct.cartProduct[0].productList)
+            
             this.setState({productList: cartProduct.cartProduct[0].productList})
             this.setState({totalCartPrice: cartProduct.cartProduct[0].totalCartPrice})
+
         })
         .catch(()=>{
             console.log("error")
         })
         window.location.reload();
+
     }
 
     togglePopUp=()=>{
-        console.log("inside toggle Popup function inside CartPage")
-        console.log(this.state.isPopUp)
+        
         this.setState({isPopUp:!this.state.isPopUp})
 
     }
 
     placeOrderClick = () => {
-        alert('Use this dummy card no: 5267318187975449 and any random cvv')
+        alert('Use this Razorpay test card no: 5267318187975449 and any random CVV and card-expiry date for dummy payment.')
         const paymentHandlers = {
           onSuccess : (options) => {
-            console.log("options")
-            console.log(options)
+            
             fetch(`/api/orders/${options.id}`, {
             method: 'PUT',
             headers: {
@@ -163,8 +157,7 @@ class CartPage extends React.Component {
         else {
             myButton = <button type="submit" className="proceedToCheckoutBtn1" onClick={()=>this.placeOrderClick()}>PAY NOW</button>
         }
-        console.log(this.state.isPopUp)
-        console.log(this.state.isSignedUp)
+        
 
         return(
             <div>
@@ -177,29 +170,45 @@ class CartPage extends React.Component {
                     </div>
                 :
                 <div>
-                    <div>
-                        <span>Total Price: Rs. {this.state.totalCartPrice}</span>
+                    <div className='headerBtns'>
+                        <h1>Total Price: Rs. {this.state.totalCartPrice}</h1>
                         {myButton}
                         <div className = "checkoutPagePopUp">{this.state.isPopUp?<PopUp togglePopUp={this.togglePopUp}/>:null}</div>
                     </div>
                     
                     {(this.state.productList).map((eachProduct) => (
                         <div>
+                            <div className='eachCartDiv'>
+                            <div class="cartImageIncreaseDecreseDiv">
                             <div>
-                            <Link to={`/product/${(eachProduct.productId)}`}><img className="cartImage" src={eachProduct.image} alt={eachProduct.title} /></Link>
-                                {eachProduct.title},
-                                Quantity: 
-                                {eachProduct.cartQuantity === 1? 
+                            <Link to={`/product/${(eachProduct.productId)}`}>
+                                <img className="cartImage" src={eachProduct.image} alt={eachProduct.title} />
+                            </Link>
+                            </div>
+                            <div className='increaseDecreaseBtns'>
+                            {eachProduct.cartQuantity === 1? 
                                 <button className="decreaseBtn" disabled={true} onClick={()=>this.decreaseClick(eachProduct.productId)}>-</button>
                                 :
                                 <button className="decreaseBtn" onClick={()=>this.decreaseClick(eachProduct.productId)}>-</button>
                                 } 
+                                
                                 <span className ="eachProductQuantity">{eachProduct.cartQuantity}</span>
+
                                 <button className="increaseBtn" onClick={()=>this.increaseClick(eachProduct.productId)}>+</button>
-                                Price: Rs. {eachProduct.quantityPrice}
-                                <button class="removeBtn" onClick={()=>this.removeClick(eachProduct.productId)}>Remove</button>
+
                             </div>
+                            </div>
+                            <div>
+                            {eachProduct.title } 
+                            <br></br><br></br>
+                            Price: Rs. {eachProduct.quantityPrice}
+                            <br></br><br></br>
+                            <button class="removeBtn" onClick={()=>this.removeClick(eachProduct.productId)}>Remove</button>
+                            </div>
+                            </div>
+                            
                         </div>
+                        
                     ))}
                 </div> 
                 }

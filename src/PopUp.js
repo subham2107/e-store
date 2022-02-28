@@ -2,6 +2,8 @@ import React from "react";
 import './PopUp.css';
 import './LoginPage.css';
 import LoginPage from './LoginPage';
+import './NavBar1.css';
+import './NavBar2.css';
 
 class PopUp extends React.Component {
 

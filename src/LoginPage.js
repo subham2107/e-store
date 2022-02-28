@@ -1,6 +1,8 @@
 import React from 'react';
 import './LoginPage.css';
 import './PopUp.css';
+import './NavBar1.css';
+import './NavBar2.css';
 
 
 class LoginPage extends React.Component {
@@ -15,13 +17,6 @@ class LoginPage extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   fetch('/api/users/me').then(user => {
-  //     if (user.status === 200) {
-  //       window.location = '/profile';
-  //     }
-  //   });
-  // }
 
   onInput = event => {
     this.setState({ [event.target.name]: event.target.value });

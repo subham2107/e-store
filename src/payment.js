@@ -4,17 +4,13 @@ function initiatePayment(paymentHandlers, onOrderCreateFailure) {
     })
     .then(res => res.json())
     .then(res => {
-      console.log("POST RESPONSE")
-        console.log(res)
-        console.log("my amount");
-        console.log(res.amount)
         const options = {
             key: process.env.REACT_APP_RZP_KEY_ID,
             amount: res.amount,
             currency: res.currency,
             order_id: res.rzpOrderId,
             name: 'E-Store',
-            image: 'https://img.flaticon.com/icons/png/512/45/45552.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF',
+            image: 'https://techpatio.com/wp-content/uploads/2020/05/ecommerce-online-shopping.jpg',
             description: 'E-commerce',
             prefill: {
                 contact: 9876543210,
@@ -47,8 +43,7 @@ function initiatePayment(paymentHandlers, onOrderCreateFailure) {
                         amount: res.amount,
                         currency: res.currency,
                     });
-                    console.log("hello response")
-                    console.log(response)
+                    
             },
             
         };

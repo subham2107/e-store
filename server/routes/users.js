@@ -90,9 +90,7 @@ router.get('/:userId', (req, res) => {
 
 router.post('/address', auth.authenticate, (req,res) => {
     const userId = req.session.userId;
-    console.log(req.body)
     const { cityName, pincode, stateName } = req.body;
-    console.log(cityName + pincode + stateName)
     User.find({_id: userId})
     .then(user => {
         res.status(201).send()

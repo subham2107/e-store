@@ -21,9 +21,7 @@ class ProductList extends React.Component {
     };
     
     componentDidUpdate(prevProps) {
-        // console.log("hi")
-        // console.log(this.props)
-        // console.log(prevProps.location.pathname)
+        
         if(this.props.location.pathname !== prevProps.location.pathname) {
             fetch(`/api/products/category/${this.props.match.params.categoryName}`)
             .then(res=>res.json())

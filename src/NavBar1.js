@@ -23,9 +23,9 @@ componentDidMount() {
   .then(response => response.json())
   .then(user => {
     if (user) {
-      console.log(user)
+     
       this.setState({isSignedUp: true, userName: user.userName});
-      console.log('hi');
+      
     }
     else {
       this.setState({isSignedUp: false});
@@ -35,8 +35,7 @@ componentDidMount() {
   fetch('/api/cart/count')
   .then(response => response.json())
   .then(cartProductCount => {
-    console.log(cartProductCount.cartProductCount)
-    console.log(this.props.cartProductCount)
+    
     this.setState({cartProductCount: cartProductCount.cartProductCount})
 
   })
@@ -56,7 +55,7 @@ onLogout = () => {
     method: 'DELETE'
   }).then(res => {
     if (res.status === 204) {
-      console.log('inside logout');
+      
       this.setState({isSignedUp: false});
       window.location.reload();
     }
@@ -76,7 +75,7 @@ searchProductResult = (productsSearchResult) => {
 render() {
   
 
-  console.log(this.props.cartProductCount)
+  
 
   let logininfo;
   

@@ -54,7 +54,6 @@ router.post('/', auth.authenticate,(req, res) => {
         const { productList, totalCartPrice } = cart;
         const amount = totalCartPrice * 100;
         const order = new Order({ userId: req.session.userId, amount, currency, status: 'CREATED', productList });
-        //console.log(order)
         order.save().then(() => {
             const orderId = order.id;
             
@@ -64,14 +63,10 @@ router.post('/', auth.authenticate,(req, res) => {
                 //receipt denotes our order id on Razorpay
                 receipt: orderId,
             };
-            console.log(options)
+            
             //Create order on razorpay
             rzpInstance.orders.create(options, (err, rzpOrder) => {
-                // console.log(rzpOrder)
-                // console.log("rzpOrder.id")
-                // console.log(typeof(rzpOrder.id))
-                // console.log("error")
-                // console.log(err)
+                
                 if (err) {
                     res.status(500).send({ error: 'Error in creating razorpay order' });
                     return;
@@ -98,8 +93,6 @@ router.post('/', auth.authenticate,(req, res) => {
 router.put('/:id', auth.authenticate, (req, res) => {
     const orderId = req.params.id;
     const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = req.body;
-    console.log("hilo")
-    console.log(req.body)
     if (!razorpay_payment_id || !razorpay_signature) {
         res.status(400).error({ error: "Missing razorpay payment id or signature" });
         return;

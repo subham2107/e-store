@@ -17,10 +17,7 @@ class ProductDetail extends React.Component {
         .then(res=>res.json())
         .then(response => {
             this.setState({product: response[0]})
-            console.log("called first")
-            console.log(this.state.product)
-            // mycategory = this.state.product.category
-            // console.log(mycategory)
+            
         })
 
         
@@ -30,18 +27,12 @@ class ProductDetail extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        // console.log("hi")
-        // console.log(this.props)
-        // console.log(prevProps.location.pathname)
+        
         if(this.props.location.pathname !== prevProps.location.pathname) {
             fetch(`/api/products/${this.props.match.params.productId}`)
             .then(res=>res.json())
             .then(response => {
                 this.setState({product: response[0]})
-                console.log("called first")
-                console.log(this.state.product)
-                // mycategory = this.state.product.category
-                // console.log(mycategory)
             })
         }
         fetch(`/api/products/category/${this.state.product.category}`)
@@ -65,12 +56,11 @@ class ProductDetail extends React.Component {
             }
         })
         .then(res => {
-            console.log("inside addToCartComponent")
-            console.log(res)
+            
             fetch('/api/cart/count')
             .then(response => response.json())
             .then(cartProductCount => {
-            console.log(cartProductCount.cartProductCount)
+            
             this.setState({cartProductCount: cartProductCount.cartProductCount})
             })
             .catch((e)=>{
@@ -100,11 +90,7 @@ class ProductDetail extends React.Component {
     
 
     render() {
-        //console.log('hi'+ {(this.state.product.price)})
-        // console.log(this.state.similarProducts)
-        // console.log(this.prevProps)
-        // console.log(this.props.match.params.productId)
-        // console.log(this.state.product.rating)
+        
         return (
             <div>
                 <NavBar1 cartProductCount={this.state.cartProductCount}/>

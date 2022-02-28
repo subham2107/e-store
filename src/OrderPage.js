@@ -18,10 +18,9 @@ class OrderPage extends React.Component{
         fetch(`/api/orders`)
         .then(res=>res.json())
         .then(response => {
-            console.log(response)
+            
             this.setState({orders: response.reverse().filter((x)=>x.status === 'COMPLETED')})
-            //this.setState({orders:response})
-            console.log(this.state.orders)
+            
         })
     }
 
@@ -47,9 +46,10 @@ class OrderPage extends React.Component{
                               Subtotal: Rs. {eachProduct.quantityPrice}
                         </div>
                     ))}
-                    <div style={{textAlign: 'center'},{fontSize: '20px'}}>
-                    Total: Rs. {eachOrder.amount/100}, 
+                    <div className='amountOrderDateDiv'>
+                    <span>Total: Rs. {eachOrder.amount/100}, 
                     Ordered on: {new Date(eachOrder.createdAt).toDateString()}
+                    </span>
                     </div>
                     <hr></hr>
                     </div>
