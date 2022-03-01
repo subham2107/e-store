@@ -36,8 +36,10 @@ class OrderPage extends React.Component{
                     </div>
                 :<div>
                 <h1 style={{textAlign: 'center'}}>My orders</h1>
+                
                 {this.state.orders.map((eachOrder)=>(
                     <div>
+                    <hr></hr>
                     {eachOrder.productList.map((eachProduct)=>(
                         <div>
                             <Link to={`/product/${(eachProduct.productId)}`}><img className = "orderProductImage" src = {eachProduct.image} alt ="img"></img></Link>
@@ -51,7 +53,7 @@ class OrderPage extends React.Component{
                     Ordered on: {new Date(eachOrder.createdAt).toDateString()}
                     </span>
                     </div>
-                    <hr></hr>
+                    
                     </div>
                     
                 ))}
