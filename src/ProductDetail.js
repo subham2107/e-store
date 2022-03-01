@@ -17,12 +17,16 @@ class ProductDetail extends React.Component {
         .then(res=>res.json())
         .then(response => {
             this.setState({product: response[0]})
-            
+            fetch(`/api/products/category/${this.state.product.category}`)
+                .then(res => res.json())
+                .then(data => {
+                    // if(this.props.location.pathname !== prevProps.location.pathname) {
+                        this.setState({similarProducts: data.filter(x => x._id.toString() !== this.props.match.params.productId)})
+
+                    // }
+
+                })
         })
-
-        
-        
-
         
     }
 
@@ -33,17 +37,18 @@ class ProductDetail extends React.Component {
             .then(res=>res.json())
             .then(response => {
                 this.setState({product: response[0]})
+                fetch(`/api/products/category/${this.state.product.category}`)
+                .then(res => res.json())
+                .then(data => {
+                    // if(this.props.location.pathname !== prevProps.location.pathname) {
+                        this.setState({similarProducts: data.filter(x => x._id.toString() !== this.props.match.params.productId)})
+
+                    // }
+
+                })
             })
-        }
-        fetch(`/api/products/category/${this.state.product.category}`)
-        .then(res => res.json())
-        .then(data => {
-            // if(this.props.location.pathname !== prevProps.location.pathname) {
-                this.setState({similarProducts: data.filter(x => x._id.toString() !== this.props.match.params.productId)})
-
-            // }
-
-        })
+        }      
+        
     }
 
     addToCart=()=> {
