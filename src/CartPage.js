@@ -124,7 +124,8 @@ class CartPage extends React.Component {
     }
 
     placeOrderClick = () => {
-        alert('Use this Razorpay test card no: 5267318187975449 and any random CVV and card-expiry date for dummy payment.')
+        //alert('Use this Razorpay test card no: 5267318187975449 and any random CVV and card-expiry date for dummy payment.')
+        alert(`For test payments select UPI/QR method and enter UPI ID as "success@razorpay"`)
         const paymentHandlers = {
           onSuccess : (options) => {
             
