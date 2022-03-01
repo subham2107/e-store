@@ -2,13 +2,10 @@
     color:rgb(0, 0, 0);
     cursor: pointer;
   }
-  /* .cartCount {
-    position:absolute;
-    color: white;
-    border-radius: 50%;
-    background-color: red;
-    margin-bottom: 10px;
-  } */
+  .cartCount {
+    
+    color: rgb(0, 0, 0);
+  }
 
   .cartLogin {
     display: flex;

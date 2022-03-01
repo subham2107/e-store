@@ -36,8 +36,8 @@
 
 .productDetailImage {
     height: 450px;
-    min-width: 370px;
-    max-width: 370px;   
+    min-width: 350px;
+    max-width: 350px;   
     /* box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; */ 
 
 }
