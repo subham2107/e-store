@@ -14,6 +14,14 @@
     max-width: 100px; 
 }
 
+.addToCartBtn:active {
+  background-color: #c98922;
+}
+
+.goToCartBtn:active {
+  background-color: #d46026;
+}
+
 .goToCartBtn {
     background-color: #fb641b;
     color: #fff;
