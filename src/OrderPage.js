@@ -40,7 +40,7 @@ class OrderPage extends React.Component{
                 {this.state.orders.map((eachOrder)=>(
                     <div>
                     <hr></hr>
-                    {eachOrder.productList.map((eachProduct)=>(
+                    {eachOrder.productList.reverse().map((eachProduct)=>(
                         <div>
                             <Link to={`/product/${(eachProduct.productId)}`}><img className = "orderProductImage" src = {eachProduct.image} alt ="img"></img></Link>
                               {eachProduct.title}, 

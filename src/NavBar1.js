@@ -30,6 +30,9 @@ componentDidMount() {
     else {
       this.setState({isSignedUp: false});
     }
+  })
+  .catch(()=>{
+    console.log()
   });
 
   fetch('/api/cart/count')
@@ -39,9 +42,11 @@ componentDidMount() {
     this.setState({cartProductCount: cartProductCount.cartProductCount})
 
   })
-  .catch(()=>{
-    console.log("error")
+  .catch((e)=>{
+    console.log(e)
   })
+  
+
 }
 
 

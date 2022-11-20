@@ -137,17 +137,17 @@ router.get('/count', (req,res) => {
 
 router.delete('/:productId', (req,res)=>{
     Cart.find({_id: req.session.cartId})
-    .then((cartItem)=>{
+    .then((cartProduct)=>{
         
-        const cartProductIdIndex = cartItem[0].productList.findIndex((a) => a.productId == req.params.productId);
+        const cartProductIdIndex = cartProduct[0].productList.findIndex((a) => a.productId == req.params.productId);
         
-        cartItem[0].totalCartPrice = cartItem[0].totalCartPrice - cartItem[0].productList[cartProductIdIndex].quantityPrice
+        cartProduct[0].totalCartPrice = cartProduct[0].totalCartPrice - cartProduct[0].productList[cartProductIdIndex].quantityPrice
         
-        cartItem[0].productList.splice(cartProductIdIndex, 1);
+        cartProduct[0].productList.splice(cartProductIdIndex, 1);
         
-        cartItem[0].save()
+        cartProduct[0].save()
         .then(()=>{
-            res.status(204).send({cartItem, message: "Product deleted from cart"});
+            res.status(200).send({cartProduct, message: "Product deleted from cart"});
         })
     })
     .catch(()=>{

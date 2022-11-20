@@ -19,6 +19,7 @@ class CartPage extends React.Component {
             totalCartPrice: '',
             isSignedUp: false,
             isPopUp: false,
+            cartProductCount: ''
         };
     }
 
@@ -34,8 +35,8 @@ class CartPage extends React.Component {
               
             }
           })
-          .catch(()=>{
-              console.log("error")
+          .catch((e)=>{
+              console.log(e)
         })
 
         fetch(`/api/cart/me`)
@@ -43,7 +44,7 @@ class CartPage extends React.Component {
         .then(cartProducts=> {
             
             if(cartProducts.error !== "No cart products") {
-                this.setState({productList: cartProducts[0].productList})
+                this.setState({productList: cartProducts[0].productList.reverse()})
                 this.setState({totalCartPrice: cartProducts[0].totalCartPrice})
             }
             else {
@@ -70,11 +71,11 @@ class CartPage extends React.Component {
         .then(res =>res.json())
         .then(cartProduct=>{
             
-            this.setState({productList: cartProduct.cartProduct[0].productList})
+            this.setState({productList: cartProduct.cartProduct[0].productList.reverse()})
             this.setState({totalCartPrice: cartProduct.cartProduct[0].totalCartPrice})
         })
-        .catch((error)=>{
-            console.log(error)
+        .catch((e)=>{
+            console.log(e)
         })
     }
 
@@ -90,11 +91,11 @@ class CartPage extends React.Component {
         .then(res =>res.json())
         .then(cartProduct=>{
             
-            this.setState({productList: cartProduct.cartProduct[0].productList})
+            this.setState({productList: cartProduct.cartProduct[0].productList.reverse()})
             this.setState({totalCartPrice: cartProduct.cartProduct[0].totalCartPrice})
         })
-        .catch((error)=>{
-            console.log(error)
+        .catch((e)=>{
+            console.log(e)
         })
     }
 
@@ -106,14 +107,16 @@ class CartPage extends React.Component {
         .then(res =>res.json())
         .then(cartProduct=>{
             
-            this.setState({productList: cartProduct.cartProduct[0].productList})
+            this.setState({productList: cartProduct.cartProduct[0].productList.reverse()})
             this.setState({totalCartPrice: cartProduct.cartProduct[0].totalCartPrice})
+            this.setState({cartProductCount: cartProduct.cartProduct[0].productList.length})
+            
 
         })
-        .catch(()=>{
-            console.log("error")
+        .catch((e)=>{
+            console.log(e)
         })
-        window.location.reload();
+        // window.location.reload();
 
     }
 
@@ -162,7 +165,8 @@ class CartPage extends React.Component {
 
         return(
             <div>
-                <NavBar1/>
+                <NavBar1 cartProductCount={this.state.cartProductCount}/>
+
                 <NavBar2/>
                 <div className = "cartDiv">
                 {this.state.productList.length===0?

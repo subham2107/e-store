@@ -36,15 +36,18 @@ class LoginPage extends React.Component {
       window.location.reload();
     }
     
-    return res.json().then((body) => {
-        throw new Error(body.error)
+    res.json().then((body) => {
+        this.setState({messageSignup: ''});
+        this.setState({messageLogin: body.error});
+        // throw new Error(body.error)
     })
 
     })
     .catch((error) => {
-      this.errorMessage = error.message
-      this.setState({messageSignup: ''});
-      this.setState({messageLogin: this.errorMessage});
+      console.log(e)
+      // this.errorMessage = error.message
+      // this.setState({messageSignup: ''});
+      // this.setState({messageLogin: this.errorMessage});
     });
   }
 
@@ -60,16 +63,23 @@ class LoginPage extends React.Component {
     })
     .then((response) => {
       if (response.ok) {
+        
         alert('User Signed Up! You can login now.')
+
       }
-      return response.json().then((body) => {
-          throw new Error(body.error)
+      response.json().then((body) => {
+          this.setState({messageSignup: body.error});
+          this.setState({messageLogin: ''});
+
+          // throw new Error(body.error)
       })
     })
     .catch((error) => {
-      this.errorMessage = error.message
-      this.setState({messageSignup: this.errorMessage});
-      this.setState({messageLogin: ''});
+      console.log(e)
+
+      // this.errorMessage = error.message
+      // this.setState({messageSignup: this.errorMessage});
+      // this.setState({messageLogin: ''});
     });
   }
 
