@@ -88,16 +88,16 @@ router.get('/:userId', (req, res) => {
 //     });
 // });
 
-router.post('/address', auth.authenticate, (req,res) => {
-    const userId = req.session.userId;
-    const { cityName, pincode, stateName } = req.body;
-    User.find({_id: userId})
-    .then(user => {
-        res.status(201).send()
-    })
-    .catch(()=>{
-        res.status(500).send({error: "Internal Server Error"})
-    })
-})
+// router.post('/address', auth.authenticate, (req,res) => {
+//     const userId = req.session.userId;
+//     const { cityName, pincode, stateName } = req.body;
+//     User.find({_id: userId})
+//     .then(user => {
+//         res.status(201).send()
+//     })
+//     .catch(()=>{
+//         res.status(500).send({error: "Internal Server Error"})
+//     })
+// })
 
 module.exports = router;
