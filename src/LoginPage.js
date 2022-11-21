@@ -86,7 +86,7 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div className="LoginPage">
-         <div className = 'loginHeader'>LOGIN / SIGNUP</div>
+         <div className = 'loginHeader'>Signup & Login</div>
          <div className = 'loginError'>
       {this.state.messageLogin? <span className ='error-span'>{this.state.messageLogin}</span> : null} 
       {this.state.messageSignup ? <span className ='error-span'>{this.state.messageSignup}</span> : null}
