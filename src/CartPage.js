@@ -109,9 +109,26 @@ class CartPage extends React.Component {
             
             this.setState({productList: cartProduct.cartProduct[0].productList.reverse()})
             this.setState({totalCartPrice: cartProduct.cartProduct[0].totalCartPrice})
-            this.setState({cartProductCount: cartProduct.cartProduct[0].productList.length})
+            // this.setState({cartProductCount: cartProduct.cartProduct[0].productList.length})
             
 
+        })
+        .then(res => {
+            
+            fetch('/api/cart/count')
+            .then(response => response.json())
+            .then(cartProduct => {
+            // console.log(cartProduct.cartProductCount)
+            // this.setState({productList: cartProduct.cartProduct[0].productList.reverse()})
+            // this.setState({totalCartPrice: cartProduct.cartProduct[0].totalCartPrice})
+            this.setState({cartProductCount: cartProduct.cartProductCount})
+            })
+            .catch((e)=>{
+            console.log(e)
+            })
+        })
+        .catch((e)=>{
+            console.log(e)
         })
         .catch((e)=>{
             console.log(e)
