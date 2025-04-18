@@ -15,10 +15,10 @@ function initiatePayment(paymentHandlers, onOrderCreateFailure) {
             prefill: {
                 contact: 9876543210,
                 email: 'e-store.test123@mail.com',
-              //   method: 'card',
-              //     card[number]: '5267318187975449',
-              //     card[expiry]: '12/26',
-              //     card[cvv]: '123'
+                method: 'card',
+                  card[number]: '5267318187975449',
+                  card[expiry]: '12/56',
+                  card[cvv]: '123'
             },
             theme: {
                 color: 'rgb(16, 114, 212)',
