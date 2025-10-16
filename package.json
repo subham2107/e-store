@@ -2,7 +2,7 @@
   "name": "e-store",
   "version": "0.1.0",
   "engines": {
-    "node": "16.x"
+    "node": ">=20"
   },
   "private": true,
   "dependencies": {
